@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
+            <com.xyz.util.widget.ClearEditText
                 android:id="@+id/et_package"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -37,7 +37,7 @@
                 android:text="com.xyz.sample"
                 android:layout_height="wrap_content"/>
 
-            <EditText
+            <com.xyz.util.widget.ClearEditText
                 android:id="@+id/et_label"
                 android:layout_width="0dp"
                 android:layout_weight="1"
