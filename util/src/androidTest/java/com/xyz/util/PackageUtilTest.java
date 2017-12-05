@@ -4,10 +4,14 @@ import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.xyz.util.bean.WrapperPackageInfo;
+
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.List;
 
 /**
  * Created by ZP on 2017/11/22.
@@ -48,6 +52,12 @@ public class PackageUtilTest {
     public void getAppVersionName() throws Exception {
         int appVersionCode = PackageUtil.getAppVersionCode(mActivity.getActivity());
         Assert.assertEquals(100, appVersionCode);
+    }
+
+    @Test
+    public void getInstallApp() throws Exception {
+        List<WrapperPackageInfo> installApp = PackageUtil.getInstallApp(mActivity.getActivity());
+        System.out.println(installApp.toString());
     }
 
 }

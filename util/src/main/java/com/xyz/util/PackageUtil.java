@@ -7,7 +7,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+
+import com.xyz.util.bean.WrapperPackageInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ZP on 2017/10/12.
@@ -169,5 +175,27 @@ public class PackageUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * 获取已安装的应用
+     *
+     * @param context {@link Context}
+     * @return {@link WrapperPackageInfo} 列表
+     */
+    public static List<WrapperPackageInfo> getInstallApp(Context context) {
+        List<WrapperPackageInfo> result = new ArrayList<>();
+        PackageManager pm = context.getPackageManager();
+        List<PackageInfo> installedPackages = pm.getInstalledPackages(0);
+        for (PackageInfo installedPackage : installedPackages) {
+            String appName = installedPackage.applicationInfo.loadLabel(pm).toString();
+            Drawable drawable = installedPackage.applicationInfo.loadIcon(pm);
+            if ((installedPackage.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                result.add(new WrapperPackageInfo(installedPackage, appName, false, drawable));
+            } else {
+                result.add(new WrapperPackageInfo(installedPackage, appName, true, drawable));
+            }
+        }
+        return result;
     }
 }
