@@ -12,6 +12,7 @@ import android.text.TextUtils;
 
 import com.xyz.util.bean.WrapperPackageInfo;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -190,10 +191,17 @@ public class PackageUtil {
         for (PackageInfo installedPackage : installedPackages) {
             String appName = installedPackage.applicationInfo.loadLabel(pm).toString();
             Drawable drawable = installedPackage.applicationInfo.loadIcon(pm);
+            //应用程序大小
+            String sourceDir = installedPackage.applicationInfo.sourceDir;
+            File file = new File(sourceDir);
+            long length = 0L;
+            if (file.exists()) {
+                length = file.length();
+            }
             if ((installedPackage.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-                result.add(new WrapperPackageInfo(installedPackage, appName, false, drawable));
+                result.add(new WrapperPackageInfo(installedPackage, appName, false, drawable, length));
             } else {
-                result.add(new WrapperPackageInfo(installedPackage, appName, true, drawable));
+                result.add(new WrapperPackageInfo(installedPackage, appName, true, drawable, length));
             }
         }
         return result;

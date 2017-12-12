@@ -1,6 +1,7 @@
 package com.xyz.sample;
 
 import android.content.Context;
+import android.text.format.DateUtils;
 
 import com.xyz.sample.adapter.BaseAdapter;
 import com.xyz.sample.adapter.BaseViewHolder;
@@ -23,7 +24,12 @@ public class FileAdapter extends BaseAdapter<WrapperPackageInfo> {
 
         holder.setText(R.id.tv_app_name, wrapperPackageInfo.getAppName());
         holder.setText(R.id.tv_app_version, wrapperPackageInfo.getPackageInfo().versionName);
-        holder.setText(R.id.tv_install_date, wrapperPackageInfo.getPackageInfo().firstInstallTime + "");
+
+        long lastUpdateTime = wrapperPackageInfo.getPackageInfo().lastUpdateTime;
+        String installDate = DateUtils.formatDateTime(mContext, lastUpdateTime, DateUtils.FORMAT_SHOW_YEAR);
+        holder.setText(R.id.tv_install_date, installDate);
+
+        holder.setText(R.id.tv_cache_size, wrapperPackageInfo.formatAppSize(mContext));
         holder.setImageDrawable(R.id.iv_app_icon, wrapperPackageInfo.getDrawable());
     }
 }
