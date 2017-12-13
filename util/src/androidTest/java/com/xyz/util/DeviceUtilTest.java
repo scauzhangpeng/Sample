@@ -115,4 +115,15 @@ public class DeviceUtilTest {
     public void isEmulator() throws Exception {
 
     }
+
+    @Test
+    public void getNumberOfCpuCores() throws Exception {
+        Assert.assertEquals(8, DeviceUtil.getNumberOfCpuCores());
+    }
+
+    @Test
+    public void getBaseBrand_Ver() throws Exception {
+        Assert.assertEquals("", DeviceUtil.getBasebandVersion());
+    }
+
 }
