@@ -126,4 +126,9 @@ public class DeviceUtilTest {
         Assert.assertEquals("", DeviceUtil.getBasebandVersion());
     }
 
+    @Test
+    public void getLinuxCoreVersion() throws Exception {
+        Assert.assertEquals("", DeviceUtil.getLinuxCoreVersion());
+    }
+
 }

@@ -1,7 +1,12 @@
 package com.xyz.util;
 
 import android.os.Build;
+import android.text.TextUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -71,13 +76,13 @@ public class DeviceUtil {
      * @return 基带版本或者空字符串
      */
     public static String getBasebandVersion() {
-        String Version = "";
+        String version = "";
         try {
             Class cl = Class.forName("android.os.SystemProperties");
             Object invoker = cl.newInstance();
             Method m = cl.getMethod("get", new Class[]{String.class, String.class});
             Object result = m.invoke(invoker, new Object[]{"gsm.version.baseband", "no message"});
-            Version = (String) result;
+            version = (String) result;
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -89,7 +94,47 @@ public class DeviceUtil {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return Version;
+        return version;
+    }
+
+    public static String getLinuxCoreVersion() {
+        Process process = null;
+        String kernelVersion = "";
+        try {
+            process = Runtime.getRuntime().exec("cat /proc/version");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // get the output line
+        if (process == null) {
+            return kernelVersion;
+        }
+        InputStream outs = process.getInputStream();
+        InputStreamReader isrout = new InputStreamReader(outs);
+        BufferedReader brout = new BufferedReader(isrout, 8 * 1024);
+
+        String result = "";
+        String line;
+        // get the whole standard output string
+        try {
+            while ((line = brout.readLine()) != null) {
+                result += line;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (!TextUtils.isEmpty(result)) {
+                String Keyword = "version ";
+                int index = result.indexOf(Keyword);
+                line = result.substring(index + Keyword.length());
+                index = line.indexOf(" ");
+                kernelVersion = line.substring(0, index);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+        return kernelVersion;
     }
 
 
