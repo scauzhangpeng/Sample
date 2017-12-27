@@ -302,30 +302,52 @@ public class ScreenUtil {
      */
     public static void showNavigationMenuKey(Window window) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            try {
-                Method setNeedsMenuKey = Window.class.getDeclaredMethod("setNeedsMenuKey", int.class);
-                setNeedsMenuKey.setAccessible(true);
-                int value = WindowManager.LayoutParams.class.getField("NEEDS_MENU_SET_TRUE").getInt(null);
-                setNeedsMenuKey.invoke(window, value);
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
+            showNavigationLollipopMR1(window);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            try {
-                int flags = WindowManager.LayoutParams.class.getField("FLAG_NEEDS_MENU_KEY").getInt(null);
-                window.addFlags(flags);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            }
+            showNavigationIceCreamSandwich(window);
+        }
+    }
+
+    /**
+     * 显示虚拟导航栏菜单按钮.
+     * Android 4.0 - Android 5.0
+     * API 14 - 21
+     *
+     * @param window {@link Window}
+     */
+    private static void showNavigationIceCreamSandwich(Window window) {
+        try {
+            int flags = WindowManager.LayoutParams.class.getField("FLAG_NEEDS_MENU_KEY").getInt(null);
+            window.addFlags(flags);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 显示虚拟导航栏菜单按钮.
+     * Android 5.1.1 - Android 7.0，Android 8.0 未测试
+     * API 22 - 25
+     *
+     * @param window {@link Window}
+     */
+    private static void showNavigationLollipopMR1(Window window) {
+        try {
+            Method setNeedsMenuKey = Window.class.getDeclaredMethod("setNeedsMenuKey", int.class);
+            setNeedsMenuKey.setAccessible(true);
+            int value = WindowManager.LayoutParams.class.getField("NEEDS_MENU_SET_TRUE").getInt(null);
+            setNeedsMenuKey.invoke(window, value);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
     }
 }
