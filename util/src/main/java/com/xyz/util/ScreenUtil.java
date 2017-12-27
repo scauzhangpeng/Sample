@@ -301,7 +301,7 @@ public class ScreenUtil {
      * @param window {@link Window}
      */
     public static void showNavigationMenuKey(Window window) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             try {
                 Method setNeedsMenuKey = Window.class.getDeclaredMethod("setNeedsMenuKey", int.class);
                 setNeedsMenuKey.setAccessible(true);
@@ -317,7 +317,7 @@ public class ScreenUtil {
                 e.printStackTrace();
             }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             try {
                 int flags = WindowManager.LayoutParams.class.getField("FLAG_NEEDS_MENU_KEY").getInt(null);
                 window.addFlags(flags);
