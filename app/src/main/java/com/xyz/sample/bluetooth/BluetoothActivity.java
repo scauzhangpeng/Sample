@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.xyz.sample.R;
 import com.xyz.util.IntentUtil;
+import com.xyz.util.ScreenUtil;
 import com.xyz.util.bluetooth.BluetoothUtil;
 
 /**
@@ -39,6 +41,7 @@ public class BluetoothActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_bluetooth);
+        ScreenUtil.showNavigationMenuKey(getWindow());
         initView();
 //        if (BluetoothUtil.isBluetoothExit()) {
 //            BleManager.getInstance().initBluetooth(this);
@@ -223,4 +226,13 @@ public class BluetoothActivity extends Activity {
 //            }
 //        }
 //    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            Toast.makeText(this, "menu click", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

@@ -6,8 +6,10 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Build;
+import android.view.Window;
 import android.view.WindowManager;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -289,5 +291,41 @@ public class ScreenUtil {
      */
     public static void disableScreenShot(Activity activity) {
         activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+    }
+
+    /**
+     * 显示虚拟导航栏菜单按钮.
+     * 虚拟导航栏菜单按钮在4.0以后默认不显示，可以利用反射强行设置，调用位置须在setContentView之后
+     * 具体可以参考5.0以及6.0中的PhoneWindow类源码
+     *
+     * @param window {@link Window}
+     */
+    public static void showNavigationMenuKey(Window window) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            try {
+                Method setNeedsMenuKey = Window.class.getDeclaredMethod("setNeedsMenuKey", int.class);
+                setNeedsMenuKey.setAccessible(true);
+                int value = WindowManager.LayoutParams.class.getField("NEEDS_MENU_SET_TRUE").getInt(null);
+                setNeedsMenuKey.invoke(window, value);
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            try {
+                int flags = WindowManager.LayoutParams.class.getField("FLAG_NEEDS_MENU_KEY").getInt(null);
+                window.addFlags(flags);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
