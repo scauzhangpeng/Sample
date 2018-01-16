@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_location_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="定位信息："/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动定位"
+        android:background="@drawable/btn_main_selector"
+        android:layout_margin="16dp"
+        android:textColor="@android:color/white"
+        android:onClick="startLocation"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止定位"
+        android:background="@drawable/btn_main_selector"
+        android:layout_margin="16dp"
+        android:textColor="@android:color/white"
+        android:onClick="stopLocation"/>
+
+</LinearLayout>

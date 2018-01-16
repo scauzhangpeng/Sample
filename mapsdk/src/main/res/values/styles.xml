@@ -8,9 +8,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- 5.0 以后Button去除阴影-->
-    <style name="BorderLessButton" parent="Widget.AppCompat.Button.Borderless">
-
-    </style>
-
 </resources>
