@@ -47,4 +47,12 @@ public class MarketActivity extends BaseActivity {
     public void goToMeizu(View view) {
         MarketUtil.toMeizu(this, APP_PACKAGE);
     }
+
+    public void goToSamsung(View view) {
+        MarketUtil.goToSamsungMarket(this, APP_PACKAGE);
+    }
+
+    public void goToSony(View view) {
+        MarketUtil.goToSonyMarket(this, "3502");
+    }
 }

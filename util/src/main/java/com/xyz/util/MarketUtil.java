@@ -1,5 +1,6 @@
 package com.xyz.util;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -98,6 +99,52 @@ public class MarketUtil {
      */
     public static boolean toMeizu(Context context, String appPkg) {
         return toMarket(context, appPkg, "com.meizu.mstore");
+    }
+
+    /**
+     * 跳转三星应用商店
+     *
+     * @param context     {@link Context}
+     * @param packageName 包名
+     * @return {@code true} 跳转成功 <br> {@code false} 跳转失败
+     */
+    public static boolean goToSamsungMarket(Context context, String packageName) {
+        Uri uri = Uri.parse("http://www.samsungapps.com/appquery/appDetail.as?appId=" + packageName);
+//        Uri uri = Uri.parse("http://apps.samsung.com/appquery/appDetail.as?appId=" + packageName);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setPackage("com.sec.android.app.samsungapps");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            context.startActivity(intent);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 跳转索尼精选
+     *
+     * @param context {@link Context}
+     * @param appId   索尼精选中分配得appId
+     * @return {@code true} 跳转成功 <br> {@code false} 跳转失败
+     */
+    public static boolean goToSonyMarket(Context context, String appId) {
+        Uri uri = Uri.parse("http://m.sonyselect.cn/" + appId);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//        Intent intent = new Intent();
+//        intent.setAction("com.sonymobile.playnowchina.android.action.NOTIFICATION_APP_DETAIL_PAGE");
+//        intent.setAction("com.sonymobile.playnowchina.android.action.APP_DETAIL_PAGE");
+//        intent.putExtra("app_id", 9115);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            context.startActivity(intent);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     /**

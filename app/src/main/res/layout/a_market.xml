@@ -60,4 +60,20 @@
         android:background="@drawable/btn_main_selector"
         android:onClick="goToMeizu"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="三星应用商店"
+        style="@style/BorderLessButton"
+        android:background="@drawable/btn_main_selector"
+        android:onClick="goToSamsung"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="索尼应用商店"
+        style="@style/BorderLessButton"
+        android:background="@drawable/btn_main_selector"
+        android:onClick="goToSony"/>
+
 </LinearLayout>
