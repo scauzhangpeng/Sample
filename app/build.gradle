@@ -6,15 +6,30 @@ android {
     defaultConfig {
         applicationId "com.xyz.sample"
         minSdkVersion 18
-        targetSdkVersion 22
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+//    signingConfigs {
+//        release {
+//            storeFile file("D:\\tool.jks")
+//            storePassword "123456"
+//            keyAlias "commonutil"
+//            keyPassword "123456"
+//        }
+//    }
+
     buildTypes {
         release {
+//            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+//            signingConfig signingConfigs.release
         }
     }
 }

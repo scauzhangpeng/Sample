@@ -1,1 +1,1 @@
-include ':app', ':util', ':mapsdk', ':amap', ':baidumap'
+include ':app', ':util'
