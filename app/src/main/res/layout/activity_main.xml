@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.xyz.sample.MainActivity">
@@ -53,5 +54,17 @@
             android:text="跳转神隐模式详细"
             android:onClick="toHiddenConfig"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_open_flash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开闪光灯" />
+
+    <Button
+        android:id="@+id/btn_close_flash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭闪光灯" />
 
 </LinearLayout>
