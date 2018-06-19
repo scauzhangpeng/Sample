@@ -60,4 +60,9 @@ public class PackageUtilTest {
         System.out.println(installApp.toString());
     }
 
+    @Test
+    public void getTaskAffinity() throws Exception {
+        String taskAffinity = PackageUtil.getTaskAffinity(mActivity.getActivity());
+        Assert.assertEquals("aa", taskAffinity);
+    }
 }

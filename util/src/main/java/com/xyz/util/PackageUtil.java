@@ -3,12 +3,14 @@ package com.xyz.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.xyz.util.bean.WrapperPackageInfo;
 
@@ -205,5 +207,23 @@ public class PackageUtil {
             }
         }
         return result;
+    }
+
+    /**
+     * 获取Activity的TaskAffinity.
+     *
+     * @param activity {@link Activity}
+     * @return TaskAffinity值
+     */
+    public static String getTaskAffinity(Activity activity) {
+        try {
+            ActivityInfo info = activity.getPackageManager()
+                    .getActivityInfo(activity.getComponentName(), PackageManager.GET_META_DATA);
+            return info.taskAffinity;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            Log.w("getTaskAffinity", e);
+        }
+        return "";
     }
 }

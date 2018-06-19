@@ -124,4 +124,7 @@
     <string name="big_picture_style_example_summary_text">Big picture style example summary</string>
 
     <string name="percent_progress">Percent Progress</string>
+
+    <string name="activity_info" formatted="false">taskId is: %d, hashCode is: %d, taskAffinity is: %s</string>
+    <string name="total_events">%s 起</string>
 </resources>
