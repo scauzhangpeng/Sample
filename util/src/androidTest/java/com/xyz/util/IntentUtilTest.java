@@ -69,6 +69,12 @@ public class IntentUtilTest {
     }
 
     @Test
+    public void toAccessibilitySetting() throws Exception {
+        boolean b = IntentUtil.toAccessibilitySetting(mActivity.getActivity());
+        Assert.assertTrue(b);
+    }
+
+    @Test
     public void toQuickLaunchShortCut() throws Exception {
         boolean b = IntentUtil.toQuickLaunchShortCut(mActivity.getActivity());
         Assert.assertTrue(b);

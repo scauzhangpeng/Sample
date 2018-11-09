@@ -130,6 +130,15 @@ public final class IntentUtil {
     }
 
     /**
+     * 跳转至辅助功能界面
+     *
+     * @param context {@link Context}
+     */
+    public static boolean toAccessibilitySetting(Context context) {
+        return toIntent(context, Settings.ACTION_ACCESSIBILITY_SETTINGS);
+    }
+
+    /**
      * 跳转至给定包名的应用配置界面
      * @param context {@link Context}
      * @param packageName 包名
