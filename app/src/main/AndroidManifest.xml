@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.xyz.sample">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,7 @@
         android:name=".SampleApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewActivity">
+        <activity android:name=".RomInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

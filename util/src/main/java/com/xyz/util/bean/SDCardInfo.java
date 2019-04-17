@@ -50,6 +50,16 @@ public class SDCardInfo implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return "SDCardInfo{" +
+                "path='" + path + '\'' +
+                ", isRemovable=" + isRemovable +
+                ", state='" + state + '\'' +
+                ", maxFileSize=" + maxFileSize +
+                '}';
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }

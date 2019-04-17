@@ -3,8 +3,6 @@ package com.xyz.util;
 import android.os.Build;
 import android.text.TextUtils;
 
-import com.xyz.util.DeviceUtil.ROM;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -15,24 +13,24 @@ import java.lang.reflect.Method;
 
 public class DeviceFactory {
 
-    public static String getSysUIVersion(ROM rom) {
-        if (rom == ROM.MIUI) {
+    public static String getSysUIVersion(String rom) {
+        if (rom.equalsIgnoreCase("xiaomi")) {
             return getMIUIVersion();
         }
 
-        if (rom == ROM.SMARTISAN) {
+        if (rom.equalsIgnoreCase("smartisan")) {
             return getSmartisanVersion();
         }
 
-        if (rom == ROM.FLYME) {
+        if (rom.equalsIgnoreCase("meizu")) {
             return getFlyMeVersion();
         }
 
-        if (rom == ROM.EMUI) {
+        if (rom.equalsIgnoreCase("huawei")) {
             return getEMUIVersion();
         }
 
-        if (rom == ROM.COLOROS) {
+        if (rom.equalsIgnoreCase("oppo")) {
             return getColorOsVersion();
         }
         return null;

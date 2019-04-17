@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xyz.util.CameraUtil;
-import com.xyz.util.DeviceUtil;
 import com.xyz.util.IntentUtil;
 import com.xyz.util.PackageUtil;
 
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mLlXiaomi.setVisibility(View.VISIBLE);
             mEtPackage.setText(this.getPackageName());
             mEtLabel.setText(PackageUtil.getAppName(this));
-            mTvVersion.setText("MIUI 版本：" + DeviceUtil.getSysUIVersionCompat(DeviceUtil.ROM.MIUI));
+//            mTvVersion.setText("MIUI 版本：" + DeviceUtil.getSysUIVersionCompat(DeviceUtil.ROM.MIUI));
         }
     }
 

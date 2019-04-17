@@ -54,11 +54,10 @@ public class DeviceUtil {
     /**
      * 获取系统UI版本
      *
-     * @param rom {@link DeviceUtil.ROM}
      * @return 系统UI版本号
      */
-    public static String getSysUIVersionCompat(ROM rom) {
-        return DeviceFactory.getSysUIVersion(rom);
+    public static String getSysUIVersionCompat() {
+        return DeviceFactory.getSysUIVersion(Build.MANUFACTURER);
     }
 
     /**
