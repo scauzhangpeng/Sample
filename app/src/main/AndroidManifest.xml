@@ -11,7 +11,7 @@
         android:name=".SampleApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RomInfoActivity">
+        <activity android:name=".MarketActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
