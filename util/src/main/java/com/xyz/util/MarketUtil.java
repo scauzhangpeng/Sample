@@ -109,8 +109,8 @@ public class MarketUtil {
      * @return {@code true} 跳转成功 <br> {@code false} 跳转失败
      */
     public static boolean goToSamsungMarket(Context context, String packageName) {
-        Uri uri = Uri.parse("http://www.samsungapps.com/appquery/appDetail.as?appId=" + packageName);
-//        Uri uri = Uri.parse("http://apps.samsung.com/appquery/appDetail.as?appId=" + packageName);
+//        Uri uri = Uri.parse("http://www.samsungapps.com/appquery/appDetail.as?appId=" + packageName);
+        Uri uri = Uri.parse("http://apps.samsung.com/appquery/appDetail.as?appId=" + packageName);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         intent.setPackage("com.sec.android.app.samsungapps");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
