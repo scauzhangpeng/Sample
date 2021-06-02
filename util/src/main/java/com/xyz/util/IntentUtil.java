@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.RequiresPermission;
 import android.text.TextUtils;
 
 import java.io.File;

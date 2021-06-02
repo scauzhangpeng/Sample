@@ -4,7 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.RequiresPermission;
 import android.text.TextUtils;
 
 import java.io.FileReader;

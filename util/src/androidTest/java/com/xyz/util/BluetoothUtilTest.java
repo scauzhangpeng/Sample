@@ -1,9 +1,9 @@
 package com.xyz.util;
 
 import android.bluetooth.BluetoothDevice;
-import android.support.test.filters.LargeTest;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.xyz.util.bluetooth.BluetoothUtil;
 

@@ -39,7 +39,7 @@ public class PriorityPresets {
 
     /**
      * Simple notification priority preset that sets a priority using
-     * {@link android.support.v4.app.NotificationCompat.Builder#setPriority}
+     * {@link androidx.core.app.NotificationCompat.Builder#setPriority}
      */
     public static class SimplePriorityPreset extends NamedPreset {
         private final int mPriority;

@@ -7,10 +7,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.app.RemoteInput;
-import android.support.v4.app.TaskStackBuilder;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.RemoteInput;
+import androidx.core.app.TaskStackBuilder;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class NotificationUtil {
          * @param list  列表内容
          */
         public Builder setInboxStyle(String title, String summaryText, ArrayList<String> list) {
-            NotificationCompat.InboxStyle style = new android.support.v4.app.NotificationCompat.InboxStyle();
+            NotificationCompat.InboxStyle style = new androidx.core.app.NotificationCompat.InboxStyle();
             int size = list.size();
             if (size > 7) {
                 size = 7;
@@ -142,8 +142,8 @@ public class NotificationUtil {
                                        String bigText, String bigTextTitle, String bigTextSummaryTitle) {
             setContentTitle(normalContentTitle);
             setContentText(normalText);
-            android.support.v4.app.NotificationCompat.BigTextStyle style =
-                    new android.support.v4.app.NotificationCompat.BigTextStyle();
+            androidx.core.app.NotificationCompat.BigTextStyle style =
+                    new androidx.core.app.NotificationCompat.BigTextStyle();
             if (!TextUtils.isEmpty(bigTextTitle)) {
                 style.setBigContentTitle(bigTextTitle);
             }
@@ -169,8 +169,8 @@ public class NotificationUtil {
                                           String bigContentTitle, String bigTextSummary, int bigIcon, int bigPicture) {
             setContentTitle(normalContentTitle);
             setContentText(normalText);
-            android.support.v4.app.NotificationCompat.BigPictureStyle style =
-                    new android.support.v4.app.NotificationCompat.BigPictureStyle();
+            androidx.core.app.NotificationCompat.BigPictureStyle style =
+                    new androidx.core.app.NotificationCompat.BigPictureStyle();
             if (bigIcon != -1) {
                 style.bigLargeIcon(getBitmap(bigIcon));
             }
@@ -190,8 +190,8 @@ public class NotificationUtil {
                                           String bigContentText, String bigTextSummary, Bitmap bitmapIcon, Bitmap bitmapPicture) {
             setContentTitle(normalContentTitle);
             setContentText(normalText);
-            android.support.v4.app.NotificationCompat.BigPictureStyle style =
-                    new android.support.v4.app.NotificationCompat.BigPictureStyle();
+            androidx.core.app.NotificationCompat.BigPictureStyle style =
+                    new androidx.core.app.NotificationCompat.BigPictureStyle();
             if (bitmapIcon != null) {
                 style.bigLargeIcon(bitmapIcon);
             }

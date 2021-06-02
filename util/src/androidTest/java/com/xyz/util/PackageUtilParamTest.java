@@ -1,7 +1,7 @@
 package com.xyz.util;
 
 import android.os.Build;
-import android.support.test.rule.ActivityTestRule;
+import androidx.test.rule.ActivityTestRule;
 
 import org.junit.Assert;
 import org.junit.Before;

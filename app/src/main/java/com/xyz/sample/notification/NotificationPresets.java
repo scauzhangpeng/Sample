@@ -20,7 +20,7 @@ import android.app.Notification;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;

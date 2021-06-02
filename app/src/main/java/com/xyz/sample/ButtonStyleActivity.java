@@ -1,7 +1,7 @@
 package com.xyz.sample;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Created by ZP on 2018/1/10.

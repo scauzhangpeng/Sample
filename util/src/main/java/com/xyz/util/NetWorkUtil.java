@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.RequiresPermission;
 import android.telephony.TelephonyManager;
 
 import java.lang.reflect.Method;
